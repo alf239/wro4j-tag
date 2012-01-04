@@ -25,7 +25,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>wro4j-tag</artifactId>
     <groupId>uk.ac.ebi.gxa</groupId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>Gene Expression Atlas Wro4j Tag Support</name>
     <url>http://www.ebi.ac.uk/gxa/</url>
 
