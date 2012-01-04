@@ -36,7 +36,18 @@
         <spring.version>3.0.5.RELEASE</spring.version>
         <wro4j.version>1.3.8</wro4j.version>
     </properties>
-    
+
+    <scm>
+        <url>https://github.com/gxa/gxa</url>
+        <connection>scm:git:git://github.com/alf239/wro4j-tag.git</connection>
+        <!--
+             TODO: my apologies for fellow developers, we cannot put a proper URL here due to
+             http://jira.codehaus.org/browse/MRELEASE-381
+             Check https://github.com/alf239/wro4j-tag for proper URL (usually git@github.com:alf239/wro4j-tag.git)
+         -->
+        <developerConnection>scm:git:git://github.com/alf239/wro4j-tag.git</developerConnection>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>ro.isdc.wro4j</groupId>
@@ -86,4 +97,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>ebi-repo</id>
+            <url>http://www.ebi.ac.uk/intact/maven/nexus/content/repositories/ebi-repo</url>
+        </repository>
+        <snapshotRepository>
+            <id>ebi-repo-snapshots</id>
+            <url>http://www.ebi.ac.uk/intact/maven/nexus/content/repositories/ebi-repo-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
