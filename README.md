@@ -15,7 +15,7 @@ Wro4j-tag does not use wro4j runtime.
 
 Here is an example of maven config:
 
-```
+```xml
 <plugin>
       <groupId>ro.isdc.wro4j</groupId>
       <artifactId>wro4j-maven-plugin</artifactId>
@@ -40,7 +40,7 @@ Here is an example of maven config:
 
 An example of WEB-INF/wro.xml:
 
-```
+```xml
 <groups xmlns="http://www.isdc.ro/wro"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
@@ -59,10 +59,10 @@ An example of WEB-INF/wro.xml:
 
 And an example of jsp:
 
-```
+```jsp
 <html>
 <head>
-        <wro4j:all name="bundle-jquery-flot"/>
+    <wro4j:all name="bundle-jquery-flot"/>
 </head>
 ...
 </html>
@@ -70,7 +70,7 @@ And an example of jsp:
 
 And the most tricky part, the magic debug option. Just add this `wro4j-tag.properties` to your classpath:
 
-```
+```properties
 wro4j.tag.aggregation.path.JS=${wro4j.aggregation.js.path}
 wro4j.tag.aggregation.path.CSS=${wro4j.aggregation.css.path}
 wro4j.tag.aggregation.name.pattern=@groupName@-[a-f0-9]+\\.@extension@
