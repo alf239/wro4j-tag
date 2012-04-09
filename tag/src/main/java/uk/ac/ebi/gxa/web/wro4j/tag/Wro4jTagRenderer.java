@@ -73,7 +73,6 @@ public class Wro4jTagRenderer {
 
     private Collection<Resource> uncompressedResources(Group group) {
         return filter(group.getResources(), new Predicate<Resource>() {
-            @Override
             public boolean apply(@Nullable Resource resource) {
                 return isSupported(resource);
             }

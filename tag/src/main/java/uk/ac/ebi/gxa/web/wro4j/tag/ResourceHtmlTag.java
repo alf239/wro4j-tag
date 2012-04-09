@@ -37,9 +37,9 @@ public enum ResourceHtmlTag {
 
     private static final EnumMap<ResourceType, ResourceHtmlTag> BY_TYPE = newEnumMap(ResourceType.class);
 
-    private ResourceType type;
-    private String extension;
-    private String tag;
+    private final ResourceType type;
+    private final String extension;
+    private final String tag;
 
     ResourceHtmlTag(ResourceType type, String extension, String tag) {
         this.type = type;

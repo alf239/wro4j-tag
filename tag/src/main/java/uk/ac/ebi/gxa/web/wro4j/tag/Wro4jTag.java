@@ -93,7 +93,7 @@ public abstract class Wro4jTag extends TagSupport {
         return EVAL_PAGE;
     }
 
-    private JspTagException jspTagException(String message) throws JspTagException {
+    private JspTagException jspTagException(String message) {
         log.error("Wro4jTag error: " + message);
         return new JspTagException("Wro4jTag error: " + message);
     }
@@ -117,19 +117,17 @@ public abstract class Wro4jTag extends TagSupport {
 
     private class XmlFileModelFactory extends XmlModelFactory {
         @Override
-        protected InputStream getConfigResourceAsStream() throws IOException {
+        protected InputStream getModelResourceAsStream() throws IOException {
             return pageContext.getServletContext().getResourceAsStream("/WEB-INF/wro.xml");
         }
     }
 
     private class ContextDirectoryLister implements Wro4jTagRenderer.DirectoryLister {
-        @Override
         public Collection<String> list(String path) {
             final String dir = ResourcePath.normalizeDirectory(path);
             @SuppressWarnings("unchecked")
             Set<String> resources = pageContext.getServletContext().getResourcePaths(dir);
             return transform(resources, new Function<String, String>() {
-                @Override
                 public String apply(@Nullable String input) {
                     return input == null ? null : input.substring(dir.length());
                 }
