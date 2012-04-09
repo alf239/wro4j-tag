@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>wro4j-tag-example</artifactId>
+    <groupId>uk.ac.ebi.gxa</groupId>
+    <version>1.1-SNAPSHOT</version>
+    <name>Wro4j Tag Example</name>
+    <packaging>war</packaging>
+
+    <parent>
+        <groupId>uk.ac.ebi.gxa</groupId>
+        <artifactId>wro4j-tag-all</artifactId>
+        <version>1.1-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <wro4j.aggregation.js.path>/js</wro4j.aggregation.js.path>
+        <wro4j.aggregation.css.path>/css</wro4j.aggregation.css.path>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>uk.ac.ebi.gxa</groupId>
+            <artifactId>wro4j-tag</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- jsp tag dependencies -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>ro.isdc.wro4j</groupId>
+                <artifactId>wro4j-maven-plugin</artifactId>
+                <version>${wro4j.version}</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wroManagerFactory>uk.ac.ebi.gxa.web.wro4j.HashNamingYUIManagerFactory</wroManagerFactory>
+                    <cssDestinationFolder>${project.build.directory}/${project.build.finalName}${wro4j.aggregation.css.path}</cssDestinationFolder>
+                    <jsDestinationFolder>${project.build.directory}/${project.build.finalName}${wro4j.aggregation.js.path}</jsDestinationFolder>
+                    <contextFolder>${basedir}/src/main/webapp/</contextFolder>
+                    <minimize>true</minimize>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
