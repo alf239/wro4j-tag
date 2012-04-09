@@ -145,8 +145,7 @@ public class TagRendererTest {
     }
 
     private static Group createGroup() {
-        final Group group = new Group();
-        group.setName("group");
+        final Group group = new Group("group");
         group.setResources(asList(
                 Resource.create("test.js", ResourceType.JS),
                 Resource.create("test2.js", ResourceType.JS),
