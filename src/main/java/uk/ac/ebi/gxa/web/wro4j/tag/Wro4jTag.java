@@ -93,7 +93,7 @@ public abstract class Wro4jTag extends TagSupport {
         return EVAL_PAGE;
     }
 
-    private JspTagException jspTagException(String message) throws JspTagException {
+    private JspTagException jspTagException(String message) {
         log.error("Wro4jTag error: " + message);
         return new JspTagException("Wro4jTag error: " + message);
     }
